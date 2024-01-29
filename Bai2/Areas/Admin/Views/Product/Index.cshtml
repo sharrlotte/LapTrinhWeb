@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Bai2.Models.Product> 
+
+<h2>Products</h2> 
+<a href="/Admin/Product/Add">Add</a>
+
+<table class="table"> 
+
+    <thead> 
+
+        <tr> 
+
+            <th>Name</th> 
+
+            <th>Price</th> 
+
+            <th>Description</th> 
+
+            <th>Actions</th> 
+
+        </tr> 
+
+    </thead> 
+
+    <tbody> 
+
+        @foreach (var product in Model)
+
+        { 
+
+            <tr> 
+
+                <td>@product.Name</td> 
+
+                <td>@product.Price</td> 
+
+                <td>@product.Description</td> 
+
+                <td> 
+
+                        <a href="/Admin/Product/Display/@product.Id">View</a> | 
+
+                        <a href="/Admin/Product/Update/@product.Id">Edit</a> | 
+
+                        <a href="/Admin/Product/Delete/@product.Id">Delete</a> 
+
+
+                </td> 
+
+            </tr> 
+
+        } 
+
+    </tbody> 
+
+</table> 

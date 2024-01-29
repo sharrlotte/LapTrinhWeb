@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Bai2.Models.Product> 
+
+<h2>Products</h2> 
+
+<table class="table"> 
+
+    <thead> 
+
+        <tr> 
+
+            <th>Name</th> 
+
+            <th>Price</th> 
+
+            <th>Description</th> 
+
+            <th>Actions</th> 
+
+        </tr> 
+
+    </thead> 
+
+    <tbody> 
+
+        @foreach (var product in Model)
+
+        { 
+
+            <tr> 
+
+                <td>@product.Name</td> 
+
+                <td>@product.Price</td> 
+
+                <td>@product.Description</td> 
+
+                <td> 
+
+                    <a asp-action="Display" asp-route-id="@product.Id">View</a> 
+
+
+                </td> 
+
+            </tr> 
+
+        } 
+
+    </tbody> 
+
+</table> 
