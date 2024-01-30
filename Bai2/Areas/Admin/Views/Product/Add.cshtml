@@ -1,0 +1,70 @@
+
+@model Bai2.Request.CreateProductRequest
+@using Microsoft.AspNetCore.Mvc.Rendering 
+
+@{ 
+
+	ViewData["Title"] = "Add Product"; 
+
+} 
+
+
+
+<h1>Add Product</h1> 
+
+
+
+<form asp-action="Add" asp-controller="Product" asp-area="Admin" enctype="multipart/form-data"> 
+		<div asp-validation-summary="All" class="text-danger"></div> 
+	<div class="form-group"> 
+
+		<label asp-for="Name"></label> 
+
+		<input asp-for="Name" class="form-control" /> 
+
+		<span asp-validation-for="Name" class="text-danger"></span> 
+
+	</div> 
+
+	<div class="form-group"> 
+
+		<label asp-for="Price"></label> 
+
+		<input asp-for="Price" class="form-control" /> 
+
+		<span asp-validation-for="Price" class="text-danger"></span> 
+
+	</div> 
+
+	<div class="form-group"> 
+
+		<label asp-for="Description"></label> 
+
+		<textarea asp-for="Description" class="form-control"></textarea> 
+
+		<span asp-validation-for="Description" class="text-danger"></span> 
+
+	</div> 
+
+	<div class="form-group"> 
+
+		<label asp-for="CategoryId">Category</label> 
+
+		<select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control"></select> 
+
+	</div> 
+
+
+	<div class="form-group"> 
+
+		<label asp-for="Image">Image</label> 
+
+		<input id="Image" type="file" asp-for="Image" class="form-control" accept="image/png"/> 
+
+		<span asp-validation-for="Image" class="text-danger"></span> 
+	</div> 
+
+	<button type="submit" class="btn btn-primary">Add</button> 
+
+
+</form> 

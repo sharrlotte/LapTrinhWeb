@@ -1,0 +1,31 @@
+﻿@model Bai1.Models.Product 
+
+
+
+<h2>Product Details</h2> 
+
+
+
+<div> 
+
+    <h4>Name: @Model.Name</h4> 
+
+    <h4>Price: @Model.Price</h4> 
+
+    <h4>Description: @Model.Description</h4>
+    
+    <img src="@Model.ImageUrl" alt="Product Image" /> 
+
+    @foreach (var imageUrl in Model.ImageUrls)
+
+    { 
+
+        <img src="@imageUrl" alt="Product Image" /> 
+
+    } 
+
+</div> 
+
+
+
+<a asp-action="Index">Back to List</a> 

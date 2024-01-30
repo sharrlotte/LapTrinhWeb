@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Bai2.Models.Category> 
+
+<h2>Products</h2> 
+<a href="/Admin/Category/Add">Add</a>
+
+<table class="table"> 
+
+    <thead> 
+
+        <tr> 
+
+            <th>Name</th> 
+
+            <th>Actions</th> 
+
+        </tr> 
+
+    </thead> 
+
+    <tbody> 
+
+        @foreach (var category in Model)
+
+        { 
+
+            <tr> 
+
+                <td>@category.Name</td> 
+
+                <td> 
+
+                        <a href="/Admin/Category/Update/@category.Id">Edit</a> | 
+
+                        <a href="/Admin/Category/Delete/@category.Id">Delete</a> 
+
+
+                </td> 
+
+            </tr> 
+
+        } 
+
+    </tbody> 
+
+</table> 

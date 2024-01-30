@@ -1,0 +1,47 @@
+﻿@model ShoppingCart 
+
+
+
+<h2>Your Cart</h2> 
+
+
+
+<table> 
+
+    <tr> 
+
+        <th>Product</th> 
+
+        <th>Quantity</th> 
+
+        <th>Price</th> 
+
+        <th>Total</th> 
+
+    </tr> 
+
+    @foreach (var item in Model.Items)
+
+    { 
+
+            <tr> 
+
+                <td>@item.Name</td> 
+
+                <td>@item.Quantity</td> 
+
+                <td>@item.Price</td> 
+
+                <td>@(item.Price * item.Quantity)</td> 
+
+                <td> 
+
+                    <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId">Remove</a> 
+
+                </td> 
+
+            </tr> 
+
+    } 
+
+</table> 
