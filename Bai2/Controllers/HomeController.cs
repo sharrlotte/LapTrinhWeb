@@ -10,14 +10,15 @@ namespace Bai2.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, IServiceProvider serviceProvider)
         {
            _logger = logger;
             _userManager = userManager;
+            Configure(serviceProvider);
         }
         // Thêm vào service Role - .AddRoles<IdentityRole>() vào service
         // Thêm Role vào database
-        /*public void Configure(IApplicationBuilder app, IServiceProvider serviceProvider)
+        public void Configure( IServiceProvider serviceProvider)
         {
             CreateRoles(serviceProvider).Wait();
         }
@@ -36,16 +37,16 @@ namespace Bai2.Controllers
                     var roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
-        }*/
+        }
 
         public async Task<IActionResult> Index()
         {
             // Thêm quyền admin cho bản thân
-            /* var user = await _userManager.GetUserAsync(User);
+            var user = await _userManager.GetUserAsync(User);
             if (user != null)
             {
                 await _userManager.AddToRoleAsync(user,"Admin");
-            }*/
+            }
 
             return View();
         }

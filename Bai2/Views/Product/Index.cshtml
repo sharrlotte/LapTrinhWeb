@@ -1,50 +1,31 @@
 ﻿@model IEnumerable<Bai2.Models.Product> 
 
+@{
+	int numOfQuantity = 1;
+}
+
 <h2>Products</h2> 
 
-<table class="table"> 
+<section class="d-flex flex-row justify-content-center overflow-auto flex-wrap" style="gap: 1rem">
+	@foreach (var product in Model)
+	{ 
 
-    <thead> 
+					<div class="card"  style="width: 18rem; height: 24rem; overflow: hidden"> 
+							<div style="width: 18rem; height: 18rem; overflow: hidden">
+									<img class="object-fit-cover" style="width: 18rem; height: 18rem;" src="@product.ImageUrl" ></img>
+						</div>
+							
+						<div class="card-body">
 
-        <tr> 
+							<div class="text-capitalize h3" >@product.Name</div> 
 
-            <th>Name</th> 
+							<div>@product.Price</div> 
 
-            <th>Price</th> 
-
-            <th>Description</th> 
-
-            <th>Actions</th> 
-
-        </tr> 
-
-    </thead> 
-
-    <tbody> 
-
-        @foreach (var product in Model)
-
-        { 
-
-            <tr> 
-
-                <td>@product.Name</td> 
-
-                <td>@product.Price</td> 
-
-                <td>@product.Description</td> 
-
-                <td> 
-
-                    <a asp-action="Display" asp-route-id="@product.Id">View</a> 
-
-
-                </td> 
-
-            </tr> 
-
-        } 
-
-    </tbody> 
-
-</table> 
+							<div class="flex"> 
+								<a class="btn btn-primary" asp-action="Display" asp-route-id="@product.Id">View</a> 
+								<a class="btn btn-primary" asp-action="AddToCart" asp-controller="ShoppingCart" asp-route-productId="@product.Id" asp-route-quantity="@numOfQuantity">Add to cart</a> 
+							</div>
+						</div> 
+					</div> 
+	} 
+</section>

@@ -1,45 +1,44 @@
 ﻿namespace Bai2.Models
 {
-    public class ShoppingCart
-    {
-        public List<CartItem> Items { get; set; } = new List<CartItem>();
+	public class ShoppingCart
+	{
+		public List<CartItem> Items { get; set; } = new List<CartItem>();
 
 
 
-        public void AddItem(CartItem item)
+		public void AddItem(CartItem item)
 
-        {
+		{
 
-            var existingItem = Items.FirstOrDefault(i => i.ProductId == item.ProductId);
+			var existingItem = Items.FirstOrDefault(i => i.ProductId == item.ProductId);
 
-            if (existingItem != null)
+			if (existingItem != null)
 
-            {
+			{
 
-                existingItem.Quantity += item.Quantity;
+				existingItem.Quantity += item.Quantity;
 
-            }
+			}
 
-            else
+			else
 
-            {
+			{
 
-                Items.Add(item);
+				Items.Add(item);
 
-            }
+			}
 
-        }
-
-
-
-        public void RemoveItem(int productId)
-
-        {
-
-            Items.RemoveAll(i => i.ProductId == productId);
-
-        }
+		}
 
 
-    }
+
+		public void RemoveItem(int productId)
+
+		{
+
+			Items.RemoveAll(i => i.ProductId == productId);
+
+		}
+
+	}
 }

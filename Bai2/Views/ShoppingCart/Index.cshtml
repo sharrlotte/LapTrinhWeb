@@ -6,8 +6,8 @@
 
 
 
-<table> 
-
+<table  class="table table-responsive"> 
+    <thead>
     <tr> 
 
         <th>Product</th> 
@@ -18,15 +18,19 @@
 
         <th>Total</th> 
 
+        <th>Action</th> 
     </tr> 
-
+    </thead>
+    <tbody>
     @foreach (var item in Model.Items)
-
     { 
 
             <tr> 
 
-                <td>@item.Name</td> 
+                <td>
+					@item.Name
+                    
+                    </td> 
 
                 <td>@item.Quantity</td> 
 
@@ -36,12 +40,18 @@
 
                 <td> 
 
-                    <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId">Remove</a> 
+                    <a class="btn btn btn-primary" asp-action="Increase" asp-route-id="@item.ProductId">Increase</a> 
+                    <a class="btn btn-secondary" asp-action="Decrease" asp-route-id="@item.ProductId">Decrease</a> 
+                    <a class="btn btn-danger" asp-action="RemoveFromCart" asp-route-id="@item.ProductId">Remove</a> 
+
 
                 </td> 
 
             </tr> 
 
     } 
+    </tbody>
 
 </table> 
+
+<a class="btn btn-primary" asp-action="CheckOut">Checkout</a> 

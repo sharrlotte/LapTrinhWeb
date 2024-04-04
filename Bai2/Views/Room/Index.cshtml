@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Bai2.Models.Room> 
+
+<h2>Your Preservations</h2> 
+
+<table class="table table-responsive"> 
+
+	<thead> 
+
+		<tr> 
+
+			<th>Hotel</th> 
+
+			<th>Arrival</th> 
+
+			<th>Departure</th> 
+
+			<th>Type</th> 
+
+			<th>Guests</th> 
+
+			<th>Price</th> 
+
+			<th>Manage</th> 
+
+		</tr> 
+
+	</thead> 
+
+	<tbody> 
+
+		@foreach (var room in Model)
+
+		{ 
+
+					<tr> 
+
+							<td>@room.Name</td> 
+
+							<td>@room.Arrival.ToShortDateString()</td> 
+
+							<td>@room.Departure.ToShortDateString()</td> 
+
+							<td>@room.Type</td> 
+
+							<td>@room.Guests</td> 
+
+							<td>@room.Price</td> 
+
+							<td> 
+								<a class="btn btn-primary" asp-action="Display" asp-route-id="@room.Id">View</a> 
+								<a class="btn btn-danger" asp-action="Delete" asp-route-id="@room.Id">Detele</a> 
+							</td> 
+
+					</tr> 
+
+		} 
+
+	</tbody> 
+
+</table> 
